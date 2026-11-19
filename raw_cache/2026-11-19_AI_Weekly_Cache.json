@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-19",
+  "week_range": "2026.11.12 ~ 2026.11.19",
+  "generated_at_kst": "2026-11-19 10:00:00 KST",
+  "deep_dives": [
+    {
+      "code": "01",
+      "domain": "AI 모델 · 에이전트",
+      "region_tag": "실리콘밸리 · 글로벌 AI 랩",
+      "slide_page": "3p 심층분석",
+      "articles": [
+        {
+          "title": "Anthropic IPO on Nasdaq (ticker ANT) with $80B+ annualized revenue run rate",
+          "source": "The Guardian / Market Reports",
+          "link": "https://www.theguardian.com/business/2026/nov/17/millionaire-factory-anthropic-ipo-set-to-fuel-ai-gold-rush-in-londons-high-end-property-market",
+          "pub_kst": "11/18",
+          "lang": "en"
+        },
+        {
+          "title": "OpenAI targets $70B+ year-end run rate, raises private funding at $1.25T valuation",
+          "source": "Industry Reports",
+          "link": "https://openai.com/index/research-acceleration-jagged-frontier/",
+          "pub_kst": "11/19",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "02",
+      "domain": "AI 반도체 · 인프라",
+      "region_tag": "미국 · 대만 · 한국",
+      "slide_page": "4p 심층분석",
+      "articles": [
+        {
+          "title": "NVIDIA FY27 Q3 revenue reaches $115.8B (+111% YoY), Data Center $107.6B, Vera Rubin ramps",
+          "source": "Kiplinger / NVIDIA",
+          "link": "https://www.kiplinger.com/news/live/nvidia-earnings-live-updates-and-commentary-november-2026",
+          "pub_kst": "11/19",
+          "lang": "en"
+        },
+        {
+          "title": "SK Hynix (-7.89%), TSMC (-5.74%), Samsung (-4.47%) drop ahead of NVIDIA earnings",
+          "source": "BigGo Finance",
+          "link": "https://finance.biggo.com/news/6f45519a-4e40-411a-b80e-359143b4f349",
+          "pub_kst": "11/18",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "03",
+      "domain": "빅테크 · 클라우드 · SaaS",
+      "region_tag": "북미 빅테크 · 엔터프라이즈",
+      "slide_page": "5p 심층분석",
+      "articles": [
+        {
+          "title": "Seven major US IT outages in six days (Nov 12–17): Microsoft 365, AWS US-East-1, Apple, Banks, NSA",
+          "source": "TechRepublic",
+          "link": "https://www.techrepublic.com/article/news-november-2026-tech-outages-timeline/",
+          "pub_kst": "11/18",
+          "lang": "en"
+        },
+        {
+          "title": "Big Tech 4 data center CAPEX surpasses $720B in 2026 (3x two years ago)",
+          "source": "New York Times / S&P Global",
+          "link": "https://shattered.io/big-tech-data-center-spending-720-billion-cash-burn-wall-street-2026/",
+          "pub_kst": "11/15",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "04",
+      "domain": "피지컬 AI · 보안 · 테크 정책",
+      "region_tag": "미국 · 유럽 · 글로벌 규제",
+      "slide_page": "6p 심층분석",
+      "articles": [
+        {
+          "title": "OpenAI ties frontier model releases to 4-layer lifecycle safety reviews",
+          "source": "OpenAI / Unite.AI",
+          "link": "https://www.unite.ai/openai-ties-frontier-model-releases-to-lifecycle-safety-reviews/",
+          "pub_kst": "11/18",
+          "lang": "en"
+        },
+        {
+          "title": "California releases mandatory AI safety oversight steps under SB 813; Europol Operation TorNado seizes 235 servers",
+          "source": "CA Governor Office / Europol",
+          "link": "https://www.gov.ca.gov/2026/11/18/governor-newsoms-nation-leading-ai-safety-framework-is-getting-even-stronger-as-california-releases-next-steps-on-mandatory-safety-standards-and-oversight/",
+          "pub_kst": "11/18",
+          "lang": "en"
+        }
+      ]
+    }
+  ],
+  "quick_radar": [
+    {"num": "01", "tag": "오픈소스·모델", "article": {"title": "Google DeepMind Genie 4 world model now available", "source": "DeepMind Blog", "link": "https://deepmind.google/blog/", "pub_kst": "11/17"}},
+    {"num": "02", "tag": "스타트업·VC", "article": {"title": "OpenAI delays IPO to 2027, raises private funding at $1.25T valuation", "source": "Market Reports", "link": "https://openai.com/index/research-acceleration-jagged-frontier/", "pub_kst": "11/18"}},
+    {"num": "03", "tag": "국내 AI·반도체", "article": {"title": "Memory spot prices dip while HBM4 race for NVIDIA Rubin accelerates", "source": "BigGo Finance", "link": "https://finance.biggo.com/news/6f45519a-4e40-411a-b80e-359143b4f349", "pub_kst": "11/18"}},
+    {"num": "04", "tag": "디바이스·엣지", "article": {"title": "NVIDIA Edge Computing revenue hits $8.2B (+42% YoY); DGX Spark dev kit debuts", "source": "NVIDIA Blog", "link": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/", "pub_kst": "11/16"}},
+    {"num": "05", "tag": "클라우드·데이터", "article": {"title": "Microsoft near $500M Azure AI deal with ByteDance", "source": "24/7 Wall St.", "link": "https://247wallst.com/cards/msft-xpost-01m7qh470s5dqb8kjgwrpsz6kf", "pub_kst": "11/18"}},
+    {"num": "06", "tag": "사이버보안", "article": {"title": "Physical intrusion threats at data centers surpass cybercrime concerns for the first time", "source": "Australian Cyber Security Magazine", "link": "https://australiancybersecuritymagazine.com.au/australia-joins-us-led-ai-security-agreement-on-supply-chains-and-critical-infrastructure/", "pub_kst": "11/18"}},
+    {"num": "07", "tag": "로보틱스·과학AI", "article": {"title": "NVIDIA announces Rubin HPC and CUDA-X libraries for scientific & physical AI agents", "source": "NVIDIA Blog", "link": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/", "pub_kst": "11/16"}},
+    {"num": "08", "tag": "AI 정책·영국", "article": {"title": "UK Parliament committee urges closing AI safety gaps to secure £400B AI growth", "source": "UK Parliament", "link": "https://committees.parliament.uk/committee/365/business-innovation-science-and-trade-committee/news/219006/close-ai-safety-gaps-to-secure-britains-400-billion-ai-growth-opportunity-mps-urge/", "pub_kst": "11/18"}}
+  ]
+}
