@@ -41,10 +41,10 @@ MASTER_SLIDE_URL = "https://docs.google.com/presentation/d/1yad5aoY8SAX-fImKETc5
 DEEP_DIVE_DOMAINS = [
     {
         "code": "01",
-        "domain": "AI 모델 · 에이전트",
-        "region_tag": "실리콘밸리 · 글로벌 AI 랩",
-        "kr_query": "(오픈AI OR 앤스로픽 OR 구글 딥마인드 OR 제미나이 OR 클로드 OR AI 에이전트 OR 오픈소스 AI)",
-        "en_query": "(OpenAI OR Anthropic OR \"Google DeepMind\" OR \"AI agent\" OR Gemini OR Claude)",
+        "domain": "AI 모델 · 에이전트 · 오픈 웨이트",
+        "region_tag": "실리콘밸리 · 글로벌 AI 랩 · 오픈소스",
+        "kr_query": "(오픈AI OR 앤스로픽 OR 구글 딥마인드 OR 오픈 웨이트 OR 허깅페이스 OR 파인튜닝 OR 로컬 LLM OR AI 에이전트)",
+        "en_query": "(OpenAI OR Anthropic OR \"Google DeepMind\" OR \"Thinking Machines\" OR \"open weights\" OR \"Hugging Face\" OR DeepSeek OR Qwen OR \"fine-tuning\" OR \"AI agent\")",
         "slide_page": "3p 심층분석",
     },
     {
@@ -75,7 +75,12 @@ DEEP_DIVE_DOMAINS = [
 
 # 주간 IT·AI 주요 단신 브리핑 8선 (Quick Radar)
 QUICK_RADAR_CATEGORIES = [
-    {"num": "01", "tag": "오픈소스·개발자", "query": "(오픈소스 AI OR 깃허브 코파일럿 OR 허깅페이스 OR 개발자 AI 도구 OR 바이브코딩)"},
+    {
+        "num": "01",
+        "tag": "오픈 웨이트·AI엔지니어링",
+        "query": "(오픈 웨이트 OR 허깅페이스 OR 파인튜닝 OR RLHF OR vLLM OR SGLang OR Ollama OR 로컬 LLM OR 깃허브 AI)",
+        "en_query": "(\"open weights\" OR \"Hugging Face\" OR \"fine-tuning\" OR \"Looped Transformer\" OR vLLM OR SGLang OR Ollama OR \"Apache 2.0\" LLM)",
+    },
     {"num": "02", "tag": "스타트업·VC", "query": "(AI 스타트업 투자 OR AI 유니콘 OR 글로벌 VC AI OR AI 기업가치 OR AI IPO)"},
     {"num": "03", "tag": "국내 AI·빅테크", "query": "(네이버 AI OR 카카오 AI OR 업스테이지 OR 뤼튼 OR SKT AI OR KT AI)"},
     {"num": "04", "tag": "디바이스·온디바이스", "query": "(온디바이스 AI OR AI PC OR AI 스마트폰 OR 갤럭시 AI OR 아이폰 AI OR 스마트글래스)"},
@@ -85,8 +90,11 @@ QUICK_RADAR_CATEGORIES = [
     {"num": "08", "tag": "AI 정책·저작권", "query": "(AI 저작권 OR AI 기본법 OR AI 소송 OR AI 규제 법안 OR AI 워터마크)"},
 ]
 
-# 글로벌 1차 테크 RSS 보강 피드
+# 글로벌 1차 테크 · 오픈 웨이트 · AI 엔지니어링 RSS 보강 피드
 GLOBAL_TECH_FEEDS = [
+    ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml"),
+    ("VentureBeat AI", "https://venturebeat.com/category/ai/feed/"),
+    ("Simon Willison AI", "https://simonwillison.net/atom/everything/"),
     ("TechCrunch AI", "https://techcrunch.com/category/artificial-intelligence/feed/"),
     ("The Verge AI", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
     ("Ars Technica", "https://feeds.arstechnica.com/arstechnica/technology-lab"),
@@ -204,26 +212,59 @@ def fetch_global_tech_feeds(max_per_feed: int = 4):
     return collected
 
 
+def load_pinned_topics():
+    """raw_cache/pinned_topics.json에서 이번 주 필수 반영할 사용자 지정 이슈를 로드합니다."""
+    path = os.path.join("raw_cache", "pinned_topics.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            topics = json.load(f)
+    except Exception as exc:
+        print(f"[WARN] Failed to load {path}: {exc}")
+        return []
+
+    active = []
+    today_date = NOW_KST.date()
+    for item in topics:
+        if item.get("status", "active") != "active":
+            continue
+        target_str = item.get("target_briefing_date", "")
+        if target_str:
+            try:
+                target_dt = datetime.date.fromisoformat(target_str)
+                delta = (target_dt - today_date).days
+                if delta < -2 or delta > 7:
+                    continue
+            except ValueError:
+                pass
+        active.append(item)
+    return active
+
+
 def collect_all():
     seen_titles = set()
+    pinned_topics = load_pinned_topics()
     deep_dive_results = []
     for d in DEEP_DIVE_DOMAINS:
         kr_items = fetch_google_news_rss(d["kr_query"], lang="ko", max_items=5)
-        en_items = fetch_google_news_rss(d["en_query"], lang="en", max_items=4)
-        combined = kr_items[:3] + en_items[:2]
+        en_items = fetch_google_news_rss(d["en_query"], lang="en", max_items=5)
+        combined = kr_items[:3] + en_items[:3]
         deduped = []
         for art in combined:
             key = art["title"][:22].lower()
             if key not in seen_titles:
                 seen_titles.add(key)
                 deduped.append(art)
-            if len(deduped) >= 4:
+            if len(deduped) >= 5:
                 break
         deep_dive_results.append({**d, "articles": deduped})
 
     radar_results = []
     for r in QUICK_RADAR_CATEGORIES:
         fetched = fetch_google_news_rss(r["query"], lang="ko", max_items=5)
+        if r.get("en_query"):
+            fetched = fetched[:3] + fetch_google_news_rss(r["en_query"], lang="en", max_items=3)
         chosen = None
         for art in fetched:
             key = art["title"][:22].lower()
@@ -235,12 +276,13 @@ def collect_all():
             chosen = fetched[0]
         radar_results.append({**r, "article": chosen})
 
-    global_highlights = fetch_global_tech_feeds(max_per_feed=4)
+    global_highlights = fetch_global_tech_feeds(max_per_feed=3)
 
     return {
         "date": TODAY_STR,
         "week_range": WEEK_RANGE,
         "generated_at_kst": NOW_KST.strftime("%Y-%m-%d %H:%M:%S KST"),
+        "pinned_topics": pinned_topics,
         "deep_dives": deep_dive_results,
         "quick_radar": radar_results,
         "global_tech_feeds": global_highlights,
@@ -253,7 +295,12 @@ def render_slack_post(data: dict) -> str:
     lines.append("이번 주 글로벌·국내 IT·AI 핵심 4대 이슈를 3분 영상으로 정리했습니다. 🎬")
     lines.append("")
     lines.append("*📌 이번 주 4대 핵심 이슈*")
+    pinned_by_code = {p.get("domain_code"): p for p in data.get("pinned_topics", [])}
     for d in data["deep_dives"]:
+        if d["code"] in pinned_by_code:
+            p = pinned_by_code[d["code"]]
+            lines.append(f"• *[{d['domain']}]* {p['title']}")
+            continue
         articles = d.get("articles", [])
         if articles:
             lead = articles[0]
@@ -283,6 +330,21 @@ def render_markdown(data: dict, slack_text: str) -> str:
     lines.append(f"> - 🗂️ **[02_Weekly_Briefings (주간 슬라이드·PDF)]({DRIVE_WEEKLY_URL})**")
     lines.append(f"> - 🎬 **[03_Weekly_Videos (아바타·자막 MP4)]({DRIVE_VIDEOS_URL})**")
     lines.append("")
+    if data.get("pinned_topics"):
+        lines.append("---")
+        lines.append("")
+        lines.append("## 📌 파트 0. 사용자 지정 필수 반영 이슈 (Pinned Topics)")
+        lines.append("")
+        for p in data["pinned_topics"]:
+            lines.append(f"### [{p.get('domain', '핵심 이슈')}] {p['title']} (`{p.get('release_date', '')}`)")
+            lines.append(f"- **요약**: {p.get('summary', '')}")
+            for spec in p.get("key_specs", []):
+                lines.append(f"  - {spec}")
+            if p.get("sources"):
+                src_links = " · ".join(f"[{s['name']}]({s['url']})" for s in p["sources"])
+                lines.append(f"- **공식 출처**: {src_links}")
+            lines.append("")
+
     lines.append("---")
     lines.append("")
     lines.append("## 🧠 파트 1. 주간 IT · AI 4대 핵심 영역 심층 스캔 (직전 7일)")
@@ -320,9 +382,9 @@ def render_markdown(data: dict, slack_text: str) -> str:
         lines.append("")
         lines.append("---")
         lines.append("")
-        lines.append("## 🌐 파트 3. 글로벌 1차 테크 미디어 헤드라인 (TechCrunch · The Verge · Ars Technica)")
+        lines.append("## 🌐 파트 3. 글로벌 1차 테크 · 오픈 웨이트 피드 (Hugging Face · VentureBeat · Simon Willison · TechCrunch 등)")
         lines.append("")
-        for g in data["global_tech_feeds"][:8]:
+        for g in data["global_tech_feeds"][:12]:
             lines.append(f"- **[{g['source']}]** [{g['title']}]({g['link']}) ({g['pub_kst']})")
 
     lines.append("")
