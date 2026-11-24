@@ -1,0 +1,37 @@
+[
+  {
+    "id": "2026-11-25-thinking-machines-inkling-2-mini",
+    "status": "active",
+    "target_briefing_date": "2026-11-25",
+    "domain_code": "01",
+    "domain": "AI 모델 · 에이전트 · 오픈 웨이트",
+    "title": "Thinking Machines Lab, 오픈 웨이트 'Inkling 2 Mini' 및 학습 API 'Tinker · Tinker Cookbook' 생태계 공개",
+    "release_date": "2026-11-20",
+    "summary": "전 OpenAI CTO 미라 무라티 등이 설립한 Thinking Machines Lab이 오픈 웨이트 학습 API 'Tinker'(LoRA 공유 연산 풀 기반 SFT/RL 루프 제어) 및 오픈소스 레시피 'Tinker Cookbook'과 함께 로컬 구동 특화 멀티모달 모델 'Inkling 2 Mini'(Apache 2.0)를 Hugging Face와 Tinker에 동시 공개.",
+    "key_specs": [
+      "Looped Transformer + MoE: 총 26.4B(활성 3.4B) 24개 레이어 중 중간 12개 레이어를 가중치 공유로 3회 반복 → 48개 유효 레이어(유효 활성 5.4B) 추론·코딩 성능 확보",
+      "네이티브 저비트 학습: 앞단 20개 레이어 NVFP4 + 마지막 4개 레이어 MXFP8 네이티브 학습(PTQ 성능 저하 없음), 단일 체크포인트 약 20GB",
+      "로컬 구동 및 에이전트 성능: 텍스트·이미지 멀티모달 + 1M 컨텍스트, 32GB+ Apple Silicon Mac(Ollama/Unsloth/llama.cpp) 및 NVIDIA DGX Spark 구동 가능",
+      "벤치마크: DeepSWE v1.1 48.2%, SWEBench Pro v2(Hard) 77.9%, 스탠퍼드 DGX Spark 에너지당 지능 0.703(Qwen3.6-35B-A3B 0.430 대비 우위)",
+      "실무 배포 포인트: Tinker는 LoRA 기반 연구·후학습 특화 API이며 상시 추론 호스팅 대체재가 아니므로, 학습 완료 체크포인트를 추출해 vLLM·SGLang·Ollama 등 별도 서빙 인프라로 이관하는 파이프라인 설계 필요"
+    ],
+    "sources": [
+      {
+        "name": "Thinking Machines Lab 공식 발표",
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+      },
+      {
+        "name": "Hugging Face 모델 카드 (Apache 2.0)",
+        "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+      },
+      {
+        "name": "Tinker 학습 API",
+        "url": "https://thinkingmachines.ai/tinker/"
+      },
+      {
+        "name": "VentureBeat 심층 분석",
+        "url": "https://venturebeat.com/technology/thinking-machines-wows-with-inkling-2-mini-looped-transformer-model-that-runs-locally-on-laptops"
+      }
+    ]
+  }
+]
