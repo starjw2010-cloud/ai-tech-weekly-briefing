@@ -1,0 +1,17 @@
+🤖 *[주간 IT · AI 핵심 브리핑]* (2026.11.18 ~ 2026.11.25)
+이번 주 글로벌·국내 IT·AI 핵심 4대 이슈를 3분 영상으로 정리했습니다. 🎬
+
+*📌 이번 주 4대 핵심 이슈*
+• *[AI 모델 · 에이전트 · 오픈 웨이트]* Thinking Machines Lab, 오픈 웨이트 'Inkling 2 Mini' 및 학습 API 'Tinker · Tinker Cookbook' 생태계 공개
+• *[AI 반도체 · 인프라]* 전력반도체 시장 규모, 2031년 92조원…AI·로봇이 성장 이끌어 (전자신문)
+• *[빅테크 · 클라우드 · SaaS]* AI 투자 안해서 웃었다? 애플, 엔비디아 ‘시총 왕좌’ 뺏었다 (중앙일보)
+• *[피지컬 AI · 보안 · 테크 정책]* AI·로봇이 바꾸는 건설현장…25일부터 스마트건설 엑스포 (연합뉴스)
+
+*⚡ 주간 단신 레이더 TOP 4*
+• `오픈 웨이트·AI엔지니어링` 사이오닉에이아이, LLM 게이트웨이 출시...오픈웨이트 모델 성능 최적화해 제공
+• `스타트업·VC` [유미's 픽] 앤트로픽에 돈 몰리는데…IPO 앞둔 업스테이지, 자금 확보 '고심'
+• `국내 AI·빅테크` [단독] 통신3사·네이버, AI 에이전트 전화 응대 거부키로
+• `디바이스·온디바이스` 인터넷 연결 안 하고 커닝…내년 ‘온디바이스AI’ 주의보
+
+📊 슬라이드 원본: https://docs.google.com/presentation/d/1yad5aoY8SAX-fImKETc520AsWWwWwPvWojVLGJTKQ68/edit
+📁 주간 브리핑 아카이브: https://drive.google.com/drive/folders/1wiIpcQGPbBwOqu9t_JxJg2C9LOhQSa60

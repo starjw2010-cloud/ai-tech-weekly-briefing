@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-25",
+  "week_range": "2026.11.18 ~ 2026.11.25",
+  "generated_at_kst": "2026-11-25 18:36:12 KST",
+  "pinned_topics": [
+    {
+      "id": "2026-11-25-thinking-machines-inkling-2-mini",
+      "status": "active",
+      "target_briefing_date": "2026-11-25",
+      "domain_code": "01",
+      "domain": "AI 모델 · 에이전트 · 오픈 웨이트",
+      "title": "Thinking Machines Lab, 오픈 웨이트 'Inkling 2 Mini' 및 학습 API 'Tinker · Tinker Cookbook' 생태계 공개",
+      "release_date": "2026-11-20",
+      "summary": "전 OpenAI CTO 미라 무라티 등이 설립한 Thinking Machines Lab이 오픈 웨이트 학습 API 'Tinker'(LoRA 공유 연산 풀 기반 SFT/RL 루프 제어) 및 오픈소스 레시피 'Tinker Cookbook'과 함께 로컬 구동 특화 멀티모달 모델 'Inkling 2 Mini'(Apache 2.0)를 Hugging Face와 Tinker에 동시 공개.",
+      "key_specs": [
+        "Looped Transformer + MoE: 총 26.4B(활성 3.4B) 24개 레이어 중 중간 12개 레이어를 가중치 공유로 3회 반복 → 48개 유효 레이어(유효 활성 5.4B) 추론·코딩 성능 확보",
+        "네이티브 저비트 학습: 앞단 20개 레이어 NVFP4 + 마지막 4개 레이어 MXFP8 네이티브 학습(PTQ 성능 저하 없음), 단일 체크포인트 약 20GB",
+        "로컬 구동 및 에이전트 성능: 텍스트·이미지 멀티모달 + 1M 컨텍스트, 32GB+ Apple Silicon Mac(Ollama/Unsloth/llama.cpp) 및 NVIDIA DGX Spark 구동 가능",
+        "벤치마크: DeepSWE v1.1 48.2%, SWEBench Pro v2(Hard) 77.9%, 스탠퍼드 DGX Spark 에너지당 지능 0.703(Qwen3.6-35B-A3B 0.430 대비 우위)",
+        "실무 배포 포인트: Tinker는 LoRA 기반 연구·후학습 특화 API이며 상시 추론 호스팅 대체재가 아니므로, 학습 완료 체크포인트를 추출해 vLLM·SGLang·Ollama 등 별도 서빙 인프라로 이관하는 파이프라인 설계 필요"
+      ],
+      "sources": [
+        {
+          "name": "Thinking Machines Lab 공식 발표",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+        },
+        {
+          "name": "Hugging Face 모델 카드 (Apache 2.0)",
+          "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+        },
+        {
+          "name": "Tinker 학습 API",
+          "url": "https://thinkingmachines.ai/tinker/"
+        },
+        {
+          "name": "VentureBeat 심층 분석",
+          "url": "https://venturebeat.com/technology/thinking-machines-wows-with-inkling-2-mini-looped-transformer-model-that-runs-locally-on-laptops"
+        }
+      ]
+    }
+  ],
+  "deep_dives": [
+    {
+      "code": "01",
+      "domain": "AI 모델 · 에이전트 · 오픈 웨이트",
+      "region_tag": "실리콘밸리 · 글로벌 AI 랩 · 오픈소스",
+      "kr_query": "(오픈AI OR 앤스로픽 OR 구글 딥마인드 OR 오픈 웨이트 OR 허깅페이스 OR 파인튜닝 OR 로컬 LLM OR AI 에이전트)",
+      "en_query": "(OpenAI OR Anthropic OR \"Google DeepMind\" OR \"Thinking Machines\" OR \"open weights\" OR \"Hugging Face\" OR DeepSeek OR Qwen OR \"fine-tuning\" OR \"AI agent\")",
+      "slide_page": "3p 심층분석",
+      "articles": [
+        {
+          "title": "허깅페이스, 코딩 에이전트 맞춤 어댑터 공개…'큐원' 고난도 평가 39%→65%",
+          "source": "AI타임스",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1pNHVocnBiWkpTRWdVYzgyWl8zeTV5d1gyWHZtdHRxbVBXWlUySHpaUEpwTTZ3OHMxRnEyckxyZkxKUnpVV0NZYUROQ0tIZ2tNOFpjLTl5eDNxZDNxX0JzY0JaOFZRN2lZUkE?oc=5",
+          "pub_kst": "11/19 17:23",
+          "lang": "ko"
+        },
+        {
+          "title": "“경고에도 AI 테스트 계속”···캘리포니아주, 오픈AI 안전 관리에 책임 묻는다",
+          "source": "www.cio.com",
+          "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxPdmt6bWFyRDJnRWVlcFg2R0xBNDdTdUN6aTNEZ09aMGFvZXd6VkVTejdjamIzX1Z2S1cwR0pPc1BRaHZLeFR6bE1nTGdzdGZXdXg5Yjd3b1RGaHN2TFBiTjdiYnc4eFY4TmJJUlhRc1pIR2g0bzBaWlVmY3RFMV8tazI1M2JWMmNVcUZ3cm40MHdPdmV3a3VOa2paSkNyZi1CLWMtVm1lLUotTDdZbUtJSVdZclNwS08zbFV5LXRTVWxvbHpBempNUlhLOEtPdVhtLUpTbThIeThpZklMRHR0SnBfR1dldGJCc2xyMjNGQm8ySlZaUGxEdktUWmdSVDhISmtya2J4SU5VNHlIT1d3MnRzaWI5ZHFLQWNrNkJZaHhzTW9MYTc1RDFVRUhQcHR5YzV0WTJqLWNCQVJQcEZWbGlfcjdCUzBKT2VSQUs2UUcwdUVXNWR0clFSMGlvUQ?oc=5",
+          "pub_kst": "11/20 17:28",
+          "lang": "ko"
+        },
+        {
+          "title": "AMD, 언슬로스 데스크톱용 세계 최초 NPU 구현…100개 이상 AI 에이전트 온디바이스 실행 지원",
+          "source": "인공지능신문",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBUc3BaMWtYbE9VWHBQdnBvbExtR042UmRWTWNTYVZRbTFfSGNjb0JDSndmd0p1bXhoVUU5dFlwTlltOUtBdGVlcnVDNmR0aTJhdlM0NXI0WTN0RzhYTW0xT3d4ZDVnMlk?oc=5",
+          "pub_kst": "11/20 10:39",
+          "lang": "ko"
+        },
+        {
+          "title": "Perplexity and Intelligence",
+          "source": "OpenAI",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE96Sm1EaVlsMHctNGtBMDBYdVRreWpySVdVS1RhSVZCUzk3enZHQmlIS3lWY2Rmajh2Q3RNZWU2RDEwc3ZEX2tONEpsbEN6RXowZk1ySVdaWXVVR09jX21aelV6UQ?oc=5",
+          "pub_kst": "11/23 04:12",
+          "lang": "en"
+        },
+        {
+          "title": "Working with AI",
+          "source": "Anthropic",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5QQWdUV21Fa2dHR25yU2RLd3Exd0ZQc3RERzMyZFBtWWhxS0NQZjlWR21rWXZqa3FYbmRlZEhPRGhXb19XR3UtTWd3YTdDR3JwM05VTzZoaW82UDdGQWNF?oc=5",
+          "pub_kst": "11/24 06:12",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "02",
+      "domain": "AI 반도체 · 인프라",
+      "region_tag": "미국 · 대만 · 한국",
+      "kr_query": "(엔비디아 OR TSMC OR HBM OR AI 반도체 OR SK하이닉스 AI OR 데이터센터 전력)",
+      "en_query": "(NVIDIA OR TSMC OR HBM OR \"AI chip\" OR \"data center\" OR Rubin OR Blackwell)",
+      "slide_page": "4p 심층분석",
+      "articles": [
+        {
+          "title": "전력반도체 시장 규모, 2031년 92조원…AI·로봇이 성장 이끌어",
+          "source": "전자신문",
+          "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE54bmlGV3RBdlo0eVZ1cmROT2V0ejhRRm5IN0VERlpkcXNKTmYyeXZzNU1pODdKWU14MzN2R1djQmtEUlhRYlR2ZjQzQURUdw?oc=5",
+          "pub_kst": "11/23 14:05",
+          "lang": "ko"
+        },
+        {
+          "title": "KCL-부천시, AI 전력반도체 산업 육성 위한 전략적 협력 본격화",
+          "source": "전기신문",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBZR09QMHc4V212eVBPV25uN3BWbG80d3kzOWtrbWh5Tms4aV81Tk55NGpjU2puOGhFcmFwX2dDSEpqdjMzSVhsVTFSZGU2TE5qYkVYYkc5cGU3U2VPY2NLaVB5NlRIbUw1eFBCVNIBcEFVX3lxTFByalE5djhLUWxtd3ZkVkNoQ3o2Y3hnSXNUb2Y3bG01ejRXWVZHWHNfaWZHdjNsOE9NY1ZHN0lNWl9KenIzbS1wbXc2SmxmWnFFTEYzeFdqOG5LenAyZmtRTHViX0dqVTdlWFdPZ3pwNFE?oc=5",
+          "pub_kst": "11/24 08:50",
+          "lang": "ko"
+        },
+        {
+          "title": "“AI 반도체 전력·집적 한계 넘는다”... 전북대, 저온 공정 기반 초저전력 인공시냅스 소자 개발",
+          "source": "특허뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE52VVNDSTdHeTRyenppOGhQU3BJM1d4dW9tMmllcEdJNEdTNENpQkFVOGZpZUsxUnNrb0lYLWV6OU5PRlNMZFBUbg?oc=5",
+          "pub_kst": "11/24 16:25",
+          "lang": "ko"
+        },
+        {
+          "title": "Trump sealed deal for Nvidia to rehire Jensen Huang as CEO",
+          "source": "CNBC",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9ab2habU9pTTllNmRCRDdqTjgwQ3hsVFZDX1hhVkJxaVVCWHNhYjRHLXFMaWtnME41NGZ1Z1REMkh1d2Y0NUJGamJSdVJQcV9rZEV1aW9nUlhHQWN1WkFSU3RRMnZrNEpobEp5bVBoY9IBdEFVX3lxTFBXNkNGSW1MaGlybGVOX0YtaVI0YVFfd3NYMi1BenZKN2Ewd1JJT3NMMjdpaElsRF9jSThyVzBHYlg4dUxocjBjYnV1dml4czdrWHR4akNId1g3SVJYa0oyRkdEUHJPMnRUVFpkbUpxWHRtWUxE?oc=5",
+          "pub_kst": "11/24 00:08",
+          "lang": "en"
+        },
+        {
+          "title": "The Frantic White House Push to Get Jensen Huang Back",
+          "source": "WSJ",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1pRUxrRllGQzRjbm1mbkxwWi1pcGVDREtMYVFlTWt0c2RaMm4zSFZ0UTFIOHc3eVpiaS1xODducUx5T013ekU4czVXaUVmR2JUblZPNS03Qy1yNW9wNloyaGdWeHVBQUI1VVR5NTdfRUxfNTdvdG1pSA?oc=5",
+          "pub_kst": "11/24 11:00",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "03",
+      "domain": "빅테크 · 클라우드 · SaaS",
+      "region_tag": "북미 빅테크 · 엔터프라이즈",
+      "kr_query": "(마이크로소프트 AI OR AWS OR 구글 클라우드 OR 애플 AI OR 메타 AI OR 빅테크 설비투자)",
+      "en_query": "(Microsoft Azure OR AWS OR \"Google Cloud\" OR \"Big Tech\" AI OR Apple AI OR Meta AI)",
+      "slide_page": "5p 심층분석",
+      "articles": [
+        {
+          "title": "AI 투자 안해서 웃었다? 애플, 엔비디아 ‘시총 왕좌’ 뺏었다",
+          "source": "중앙일보",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1QeDA5UG9XZWJSbEJTWmR0NTdXMncxY0pUc2k3WFplSm0wSzdXdU8tRWJWdVJjb2ZudlNWU080aHhDbG9EdjN3Z01ac2hiY1hzTktVVGRB?oc=5",
+          "pub_kst": "11/25 18:01",
+          "lang": "ko"
+        },
+        {
+          "title": "[2027 월가의 선택②] AI 투자 1조달러 시대…빅테크 수익화·기업 생산성 혁신에 주목",
+          "source": "뉴시안",
+          "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5OM0ZVdTdadlZUSlNTMy1Gc2F0Z18wa3NIellVZ1h3blh3dUVhVGQ1UDZPbzlHNVd4bW9JRWx0Tm5sYk5ISkZ6TEtLTmFRSXlVem03T0phY1F5RV9xM2VjRHp5ZzdEbkMwY294Nw?oc=5",
+          "pub_kst": "11/21 07:05",
+          "lang": "ko"
+        },
+        {
+          "title": "[美 AI 투자 시험대] ② 번 돈보다 더 쓴 美 빅테크…'돈줄' 마르는 기업들",
+          "source": "뉴스핌",
+          "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBSZXZaNGM2QTNFekZWci0xcEJVSTlDaGVzQVpUY29EbEFOdlJick1RdGZRZThwbExqOERJbEFmMFNPc0MtQlcxRmNPbnY2Y0tEZ3doYTBaM25jZGFw?oc=5",
+          "pub_kst": "11/21 11:30",
+          "lang": "ko"
+        },
+        {
+          "title": "Microsoft and Intel deepen collaboration to deliver differentiated Azure infrastructure",
+          "source": "Microsoft Source",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNYTdtZG1GNmtwa1loVnhGcF9ZR2czUTVRRnZadmNXMFdrZDB6WWIzbWlUUmtVaHNpZDdjSHlqNkNfbThNY1dDYXM0M1lUb25hTldZMHpfdGNIZ29yVjE5R1RWUTE0MVR6MExyT21UQ3dUSk04eDdIMTVILVBXSWwzQVRZbnpfakstQVAzVFhMVlRBQmQ3T1dwdGJkNEczWGlCQUtNN2N2MEpaVGJySXFlZ2doTUV2bXdmZWxVUkNfcnl4SjlIenktakY5RFlSZw?oc=5",
+          "pub_kst": "11/19 01:36",
+          "lang": "en"
+        },
+        {
+          "title": "Google Cloud Blows by Microsoft and AWS in New AI and Cloud Revenue",
+          "source": "Cloud Wars",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMEQzdk5HdmlXVmtKSG9BTExOaHY0QXp2d0IxQnFzLWEzbFR1MDE4YlBHUzhtbmtldVZTc19QUnBQdWc4LXYxNTJscGVQcWhxaGlSNTNQNTY5eFRzVFpaaVlOZ21BQWh1UU1pZHZNczRiWHdCR29zLXNqZkk5Qm5yenZzRVhlajB4UTRkZEhjeU52c3lKZHlKMg?oc=5",
+          "pub_kst": "11/25 01:00",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "04",
+      "domain": "피지컬 AI · 보안 · 테크 정책",
+      "region_tag": "미국 · 유럽 · 글로벌 규제",
+      "kr_query": "(AI 규제 OR AI 안전 OR 사이버보안 AI OR 휴머노이드 로봇 OR 자율주행 AI OR EU AI법)",
+      "en_query": "(\"AI regulation\" OR \"AI safety\" OR \"EU AI Act\" OR humanoid robot OR cybersecurity AI)",
+      "slide_page": "6p 심층분석",
+      "articles": [
+        {
+          "title": "AI·로봇이 바꾸는 건설현장…25일부터 스마트건설 엑스포",
+          "source": "연합뉴스",
+          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkUGR4Y0NxOEZYS1NpdHdITl9fT21IdmZhekw5MFRQX0NGeF81OUhkdUFoNVp0dlVYWEdwSDVEeC1sWHVwYmZlQmNnSXhBNzlRd2NxQ0dIM3daMGPSAWBBVV95cUxQcDd0bndoUVhZZE1aS3pkTVQwc1dMa2xnX1NiY0JqVlpURXVydE9wOGdyYjNPckdKcmdYMkgxbUE5V1hPLU1vbE03aXdVRXYxLUR5Nk9aaGFaUG0zMDJTS1k?oc=5",
+          "pub_kst": "11/24 06:00",
+          "lang": "ko"
+        },
+        {
+          "title": "LH, ‘2026 스마트건설·안전·AI EXPO’서 AI·로봇 기술 선보인다",
+          "source": "전기신문",
+          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE44MkU0eXBCYm9INkRlSjhXdzNCdFFMYWxfaERaMnZ0MFlNUTBsVVBmcHRxZHVzV3BkR2prd2NTeHZ3ZS1KSkJfY2RJZFlVaFpwbklwcVlTQnd1STFvUDNDTlJFaS1wVkl3VGhkSnhjdGjSAXBBVV95cUxOODJFNHlwQmJvSDZEZUo4V3czQnRRTGFsX2hEWjJ2dDBZTVEwbFVQZnB0cWR1c1dwZEdqa3djU3h2d2UtSkpCX2NkSWRZVWhacG5JcHFZU0J3dUkxb1AzQ05SRWktcFZJd1RoZEp4Y3Ro?oc=5",
+          "pub_kst": "11/25 15:41",
+          "lang": "ko"
+        },
+        {
+          "title": "440. 자율주행도 피지컬 AI와 생성형 AI 주도로 판이 바뀌었다.",
+          "source": "다나와 자동차",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5vd01vU2V0cTBULWViREV3Qm9TR3lZUEdqYm5UdjdqQXlWR1hmRkIyS0JCOUtWeEN1RlpmM2hyc1ZWYnBWN0VVbHlCS2hHTkxFLVF0Q2FPYUNhQ3hTYm1JZkpESHZiLVBYc2VpVTk2c1BZZw?oc=5",
+          "pub_kst": "11/24 17:02",
+          "lang": "ko"
+        },
+        {
+          "title": "An Eric Trump-backed startup unveils a powerful new humanoid robot—and won't rule out arming it",
+          "source": "Fast Company",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOay05N1JJSXFwUk1VakFZM3ZXRVVsSkEyWVhiSlVoUmt2b2c5bzJCcEx5cGE3WU5qbktYemF5WVBPZFlsMTd0NmJCM3ZNSnhBYndUblI1SHBvNTdNR0d0ZWNzS0xJOVNTS0hFZ3NoY05ialAwUHdLdlozNU5XbDl4ek05VlV4UWJQRDdvTw?oc=5",
+          "pub_kst": "11/18 22:58",
+          "lang": "en"
+        },
+        {
+          "title": "Visions of Japan overrun by humanoid robot imports inspire startups",
+          "source": "The Japan Times",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOSVI5NG1kS0VuZ3ZXaFBiM0hDZm9aRGt4bWY0aWFSc3Q5c0hob2tWUnBBcWZPbkpzcktXVVBid3UzMVZ6MnlUOExnaVhrcHRKR01GQlV5OTdaMmEyS3ZSQ1RtcXNzcHdFZWJfUy1kT0hYU21lczE4Y0RtRVJvMUlDMmJwV1k?oc=5",
+          "pub_kst": "11/23 14:18",
+          "lang": "en"
+        }
+      ]
+    }
+  ],
+  "quick_radar": [
+    {
+      "num": "01",
+      "tag": "오픈 웨이트·AI엔지니어링",
+      "query": "(오픈 웨이트 OR 허깅페이스 OR 파인튜닝 OR RLHF OR vLLM OR SGLang OR Ollama OR 로컬 LLM OR 깃허브 AI)",
+      "en_query": "(\"open weights\" OR \"Hugging Face\" OR \"fine-tuning\" OR \"Looped Transformer\" OR vLLM OR SGLang OR Ollama OR \"Apache 2.0\" LLM)",
+      "article": {
+        "title": "사이오닉에이아이, LLM 게이트웨이 출시...오픈웨이트 모델 성능 최적화해 제공",
+        "source": "디지털투데이",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5UbTNoSDJyQWJsQ0ZGYWhRUnhfQno5aDZJM2N0eVFYWXRFdXVYeGc5dUtHRTV3Ym1EUmc5dVpEQ1lmdjViVWw0RWg4UkxJbEN4YTBVV1ZzeXNNZ3lWOXJ3SVl3djNBNFJ1RjZkYklIVkdiTzA?oc=5",
+        "pub_kst": "11/24 09:58",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "02",
+      "tag": "스타트업·VC",
+      "query": "(AI 스타트업 투자 OR AI 유니콘 OR 글로벌 VC AI OR AI 기업가치 OR AI IPO)",
+      "article": {
+        "title": "[유미's 픽] 앤트로픽에 돈 몰리는데…IPO 앞둔 업스테이지, 자금 확보 '고심'",
+        "source": "지디넷코리아",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9pNU12a3BHWlQ0YTR1MW5mTDBfdWhvSmR5RUZHN0I4emdBa09wcHdSTU91Njl6V3pxaFZ0a0tsdW9UWjJaQ0x0RlZ1OUpRTTBlNkt1Wmt3?oc=5",
+        "pub_kst": "11/20 10:41",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "03",
+      "tag": "국내 AI·빅테크",
+      "query": "(네이버 AI OR 카카오 AI OR 업스테이지 OR 뤼튼 OR SKT AI OR KT AI)",
+      "article": {
+        "title": "[단독] 통신3사·네이버, AI 에이전트 전화 응대 거부키로",
+        "source": "조선일보",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQQnQ1dzJXeUxDSTJwQV9rSEhMQ0RRSDZZczZVbXBMaGxpQlBtQk4wVnJyc1ZsbEhoM0xzUVNuRWhYaDNxa3JKaFY4bm5ZM2ZmMUtvRWV5TGtVbFlYQVloYnVTVTBwdjRFZ09qYXBvTkpIOVhZbE4zbWI1cGVacjh2TVlLOA?oc=5",
+        "pub_kst": "11/23 14:35",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "04",
+      "tag": "디바이스·온디바이스",
+      "query": "(온디바이스 AI OR AI PC OR AI 스마트폰 OR 갤럭시 AI OR 아이폰 AI OR 스마트글래스)",
+      "article": {
+        "title": "인터넷 연결 안 하고 커닝…내년 ‘온디바이스AI’ 주의보",
+        "source": "경향신문",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5WEtzdFJQc1EtQ1FMNDZubzRLTHdqUFBhLTVpZDRYaWc0Sk9hNi15ZkRmdWhUOGRCeDdvR01iYVlSX25iMjg0YWhPdEZuT2dnYzVXUlluOGljZ9IBX0FVX3lxTE1iM3E5VWFWWkJIRHR3WnBqNk5uQ0dmLURQTFBrbUVuek1OOURXVk9iV2FjQlNySXNnQmpNMjNfaVByRUwxM0d3ODcwUG9MOVMwZ1UyYVRRaG5HZ1RyRWpF?oc=5",
+        "pub_kst": "11/22 21:08",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "05",
+      "tag": "클라우드·데이터",
+      "query": "(클라우드 장애 OR 데이터센터 투자 OR SaaS AI OR 벡터DB OR 엔터프라이즈 AI)",
+      "article": {
+        "title": "[AI 고속도로] 엔비디아가 돈 대고 GPU 팔고…네오클라우드 '순환 투자' 시험대",
+        "source": "지디넷코리아",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB1OHJOUDY0WElKci14SGU0bW0waFk2eGJwTHRuZnZOaGxyZXMwNURjSkpzVEJUZ0hwbUQza3BPVzJFSFNkQk1vVGRGSFdRRjdma09kMmdB?oc=5",
+        "pub_kst": "11/20 09:40",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "06",
+      "tag": "사이버보안",
+      "query": "(사이버보안 OR 랜섬웨어 OR 해킹 OR AI 보안 위협 OR 제로데이)",
+      "article": {
+        "title": "AI 에이전트도 해킹 표적 된다…포티넷이 전망한 2027년 보안 위협",
+        "source": "뉴스탭",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5HbnI2SjhvLTZ3c01YREM3alNKN0VDYW9mLWRHSkdCYi0zWmxXRE5EWE82cHhtYTFIZm9wV1kyRTVLNTN3QlQ5aFVoMnBCWUQteWY1N05FVFY5VFJjeEVia1RobUt1dkJET0FRUA?oc=5",
+        "pub_kst": "11/25 09:11",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "07",
+      "tag": "로보틱스·모빌리티",
+      "query": "(휴머노이드 OR 피지컬 AI OR 로보택시 OR 테슬라 옵티머스 OR 웨이모)",
+      "article": {
+        "title": "일론 머스크 \"AI칩 AI5, 테슬라 FSD보다 옵티머스에 우선 적용\"",
+        "source": "더구루",
+        "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4xSm9fa1F0VW5XZ0t4YWZfTno4N0NJUVNESDdYRS1xblUyeHk5b1BoZHB5cnpJbEZTa29OOTlFVGt6cXRTZ0hpSm00QXVBUV9CMWVHMUVZX0FNNEpYbW1JR0Z6WQ?oc=5",
+        "pub_kst": "11/23 13:18",
+        "lang": "ko"
+      }
+    },
+    {
+      "num": "08",
+      "tag": "AI 정책·저작권",
+      "query": "(AI 저작권 OR AI 기본법 OR AI 소송 OR AI 규제 법안 OR AI 워터마크)",
+      "article": {
+        "title": "미 행정부, 중국 AI 막으려 기업들 ‘이름 공개 망신주기’ 검토... 중국AI 쓰면 홈페이지에 밝혀라",
+        "source": "조선일보",
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQUXZVSVBaUExPS3lxUUJtbkVaTmhCSi1uTWVfRFp3Z21NdjM1Tm1wMHkwZGozOVRCNFV6SWtwMExfclZTVjNoSnNxazF4UjdIT0w5VHVEXzhsRzV3SldBMWpWZGVwREFNUnlnN09IeWd2d2NYWVdQMGMzcmltVGFjODRJVQ?oc=5",
+        "pub_kst": "11/19 15:25",
+        "lang": "ko"
+      }
+    }
+  ],
+  "global_tech_feeds": [
+    {
+      "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+      "source": "Hugging Face Blog",
+      "link": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+      "pub_kst": "11/25 01:34",
+      "lang": "en"
+    },
+    {
+      "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+      "source": "Hugging Face Blog",
+      "link": "https://huggingface.co/blog/allenai/robotrack",
+      "pub_kst": "11/24 02:20",
+      "lang": "en"
+    },
+    {
+      "title": "How to build and maintain an agentic evaluation",
+      "source": "Hugging Face Blog",
+      "link": "https://huggingface.co/blog/agentic-evals",
+      "pub_kst": "11/23 09:00",
+      "lang": "en"
+    },
+    {
+      "title": "Three LLM inflection points in twelve months",
+      "source": "Simon Willison AI",
+      "link": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "GPT 6.2 Astra Solves a Historical Mystery",
+      "source": "Simon Willison AI",
+      "link": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "datasette-charts 0.2a0",
+      "source": "Simon Willison AI",
+      "link": "https://simonwillison.net/2026/Nov/24/datasette-charts/",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+      "source": "TechCrunch AI",
+      "link": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+      "pub_kst": "11/25 09:12",
+      "lang": "en"
+    },
+    {
+      "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
+      "source": "TechCrunch AI",
+      "link": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+      "pub_kst": "11/25 07:27",
+      "lang": "en"
+    },
+    {
+      "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
+      "source": "TechCrunch AI",
+      "link": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+      "pub_kst": "11/25 06:48",
+      "lang": "en"
+    },
+    {
+      "title": "Jensen Huang reportedly tells Nvidia staff it’s ‘not true’ Trump got him rehired",
+      "source": "The Verge AI",
+      "link": "https://www.theverge.com/tech/1041571/jensen-huang-all-hands-nvidia-apology",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "David Fincher is being dragged for suspected use of AI in his latest film",
+      "source": "The Verge AI",
+      "link": "https://www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "Tidal will start banning AI-generated music next month",
+      "source": "The Verge AI",
+      "link": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
+      "pub_kst": "2026-11-24",
+      "lang": "en"
+    },
+    {
+      "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+      "source": "Ars Technica",
+      "link": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+      "pub_kst": "11/24 21:30",
+      "lang": "en"
+    },
+    {
+      "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+      "source": "Ars Technica",
+      "link": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+      "pub_kst": "11/21 05:59",
+      "lang": "en"
+    },
+    {
+      "title": "Man hired by Russia spied on Silicon Valley tech and defense company, feds say",
+      "source": "Ars Technica",
+      "link": "https://arstechnica.com/security/2026/11/man-charged-with-spying-on-silicon-valley-tech-and-defense-company-for-russia/",
+      "pub_kst": "11/20 05:29",
+      "lang": "en"
+    }
+  ]
+}
